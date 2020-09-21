@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="user">
+    <button onclick="buscaGitHub()">Buscar</button>    
+    <div id="repos"></div> 
+<script>
+async function buscaGitHub(){
+    var usuario = document.getElementsByName('user')[0].value;
+    url =  `https://api.github.com/users/${usuario}/repos`;
+    const response = await fetch(url);
+    const resultado = await response.json();
+
+    var repos = document.querySelector('#repos');
+    
+    var ul = document.createElement('ul');
+    repos.appendChild(ul);
+
+    resultado.forEach(elemento => {
+        var li = document.createElement('li');
+        var textNode = document.createTextNode(elemento.full_name);
+        li.appendChild(textNode)
+        ul.appendChild(li)
+    })
+}
+</script>
+</body>
+</html>

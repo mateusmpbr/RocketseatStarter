@@ -1,0 +1,10 @@
+- Configuração de ambiente
+    * https://react-native.rocketseat.dev/
+    * OBS: O Expo é uma excelente alternativa (com certeza melhor) do que a configuração indicada acima
+
+- Para criar um projeto
+    * npx react-native init <NOME_DO_PROJETO>
+ 
+- Para iniciar o projeto
+    * Primeira vez: Seguir instruções informadas ao final do log do npx acima
+    * npx react-native start 

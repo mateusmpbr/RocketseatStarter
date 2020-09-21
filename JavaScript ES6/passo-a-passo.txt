@@ -1,0 +1,64 @@
+Configurando Babel:
+	- Navegar até a pasta raíz do projeto
+	- No cmd:
+		* yarn init -y (Nome do projeto não pode ter espaço e caracteres especiais e deve ser em minúsculo)
+		* yarn add @babel/cli -D
+		* yarn add @babel/preset-env -D
+		* yarn add @babel/core -D
+		* yarn add @babel/plugin-proposal-object-rest-spread -D
+		* yarn add @babel/plugin-transform-async-to-generator -D
+		* yarn add @babel/polyfill -D
+	- Criar arquivo .babelrc:
+		* Inserir dentro do arquivo:
+			{
+				"presets": ["@babel/preset-env"],
+				"plugins": [
+					"@babel/plugin-proposal-object-rest-spread",
+					"@babel/plugin-transform-async-to-generator"
+				]
+			}
+	- Inserir dentro do package.json (A inserção abaixo irá transpilar o conteúdo de "main.js" para "bundle.js"):
+		"scripts":{
+    			"dev": "babel ./main.js -o ./bundle.js -w"
+  		}
+	- Inserir num arquivo HTML o "bundle.js"
+	- Para executar o projeto -> no cmd: yarn dev
+
+
+Configurando Webpack [Precisa do Babel]:
+	- Navegar até a pasta raíz do projeto
+	- No cmd:
+		* yarn add webpack webpack-cli -D
+		* yarn add babel-loader -D
+	- Criar arquivo webpack.config.js:
+		* Inserir dentro do arquivo:
+			module.exports = {
+    			entry: ['@babel/polyfill', './main.js'],
+				output: {
+					path: __dirname,
+					filename: 'bundle.js',
+				},
+				module: {
+					rules: [
+						{
+							test: /\.js$/,
+							exclude: /node_modules/,
+							use: {
+								loader: 'babel-loader',
+							}
+						},
+					],
+				},
+			};
+	- Inserir dentro do package.json (A inserção abaixo deve substituir o que foi inserido para o babel):
+		"scripts":{
+    			"dev": "webpack --mode=development -w"
+  		}
+	- Inserir num arquivo HTML o "bundle.js"
+	- Para executar o projeto -> no cmd: yarn dev
+
+
+Outras Configurações:
+	- Navegar até a pasta raíz do projeto
+	- No cmd:
+		* yarn add axios -D

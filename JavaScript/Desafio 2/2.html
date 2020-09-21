@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="primeiroExercicio()">I'm a button</button>
+    <div id="app"></div>
+    <script>
+        // function primeiroExercicioComCanvas(){
+        //     // 'myCanvas' deve ser o id de um objeto canvas(<canvas id='myCanvas'></canvas>)
+        //     var c = document.querySelector('#myCanvas');
+        //     var ctx = c.getContext('2d');
+
+        //     var distEsq = Math.random() * c.clientWidth;
+        //     var distTopo = Math.random() * c.clientHeight;
+
+        //     ctx.fillStyle = 'red';
+        //     ctx.fillRect(distEsq, distTopo,100,100);
+
+        // }
+
+        // var boxes = document.querySelectorAll('.box');
+
+        // boxes.forEach(box => {
+        //     box.addEventListener('mouseover', () => {
+        //         box.style.backgroundColor = getRandomColor();
+        //     })
+        // })
+
+        function primeiroExercicio(){
+            var app= document.querySelector('#app');
+            var box = document.createElement('div');
+            box.className = 'box';
+            box.style.display = 'inline-block';
+            box.style.width = '100px';
+            box.style.height = '100px';
+            box.style.backgroundColor = 'red';
+            box.style.margin = '5px';
+            app.appendChild(box);
+
+            var boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+            box.addEventListener('mouseover', () => {
+                box.style.backgroundColor = getRandomColor();
+            })
+        })
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+    </script>
+</body>
+</html>

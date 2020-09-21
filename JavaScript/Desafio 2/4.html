@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="nome" autofocus>
+    <button onClick="adicionar()">Adicionar</button>
+
+<script>
+var nomes = ["Diego", "Gabriel", "Lucas"];
+
+var bodyElement = document.querySelector('body');
+
+var ul = document.createElement('ul');
+bodyElement.appendChild(ul);
+
+for(nome of nomes){
+    createListItem(nome, ul)
+}
+
+function adicionar(){
+    var nomeElement = document.getElementsByName('nome')[0]
+    var nome = nomeElement.value
+
+    createListItem(nome, ul)
+
+    nomeElement.value = "";
+    nomeElement.focus();
+}
+
+function createListItem(text, ul){
+    var li = document.createElement('li');
+    var textNode = document.createTextNode(text);
+    li.appendChild(textNode);
+    ul.appendChild(li);
+    return li;
+}
+
+</script>
+</body>
+</html>

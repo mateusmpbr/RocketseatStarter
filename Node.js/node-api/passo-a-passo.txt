@@ -1,0 +1,15 @@
+* Instalar Node (Já vem como npm)
+* Instalar o Docker
+		. Conexão com banco de dados (IP: 127.0.0.1 ou localhost)
+Na pasta que o projeto será desenvolvido:
+	* npm init -y
+	* npm install express
+	* npm install -D nodemon
+		. Raíz do Projeto -> package.json -> Acrescentar em "scripts":{AQUI} -> "dev":"nodemon server.js"
+		. Agora, para "rodar" o projeto: npm run dev
+	* npm install require-dir
+	* npm install mongoose
+	* npm install mongoose-paginate
+	* npm install cors
+	
+		

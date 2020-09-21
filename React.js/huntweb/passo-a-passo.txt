@@ -1,0 +1,7 @@
+Instalar Node (Já vem como npm) e yarn
+Instalar React: npm install -g create-react-app
+Configurando o ambiente do projeto
+	* create-react-app nome_do_projeto
+	* Para rodar o projeto: Raíz do projeto -> no cmd -> npm start
+	* yarn add axios
+	* yarn add react-router-dom

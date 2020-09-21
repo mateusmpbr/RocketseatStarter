@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="user">
+    <button onclick="buscaGitHub()">Buscar</button>
+    <div id="repos"></div>  
+<script>
+async function buscaGitHub(){
+    try {
+        var repos = document.querySelector('#repos');
+
+        repos.innerHTML = '';
+
+        var ul= document.createElement('ul');
+        repos.appendChild(ul);
+
+        li = createListItem('Carregando...', ul)
+
+        var usuario = document.getElementsByName('user')[0].value;
+        url =  `https://api.github.com/users/${usuario}/repos`;
+
+        await fetch(url).then(function(response){
+            ul.removeChild(li);
+            
+            if(response.ok){
+                response.json().then(function(resultado){
+
+                    resultado.forEach(elemento => {
+                        createListItem(elemento.full_name, ul);
+                    })
+
+                });
+            } else {
+                alert('Network response was not ok.')
+                console.log('Network response was not ok.')
+            }
+        }).catch(function(error) {
+            alert('There has been a problem with your fetch operation: ' + error.message);
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+    }
+    catch (err) {
+        alert('fetch failed', err);
+        console.log('fetch failed', err);
+    }
+}
+
+function createListItem(text, ul){
+    var li = document.createElement('li');
+    var textNode = document.createTextNode(text);
+    li.appendChild(textNode);
+    ul.appendChild(li);
+    return li;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="primeiroExercicio()">I'm a button</button>
+    <div id="app"></div>
+    <script>
+        // function primeiroExercicioComCanvas(){
+        //     // 'myCanvas' deve ser o id de um objeto canvas(<canvas id='myCanvas'></canvas>)
+        //     var c = document.querySelector('#myCanvas');
+        //     var ctx = c.getContext('2d');
+
+        //     var distEsq = Math.random() * c.clientWidth;
+        //     var distTopo = Math.random() * c.clientHeight;
+
+        //     ctx.fillStyle = 'red';
+        //     ctx.fillRect(distEsq, distTopo,100,100);
+
+        // }
+
+        function primeiroExercicio(){
+            var app= document.querySelector('#app');
+            var box = document.createElement('div');
+            box.style.width = '100px';
+            box.style.height = '100px';
+            box.style.backgroundColor = 'red';
+            box.style.margin = '5px 0';
+            app.appendChild(box);
+        }
+    </script>
+</body>
+</html>
