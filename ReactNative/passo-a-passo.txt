@@ -7,4 +7,4 @@
  
 - Para iniciar o projeto
     * Primeira vez: Seguir instruções informadas ao final do log do npx acima
-    * npx react-native start 
+    * npx react-native start
