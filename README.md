@@ -1,2 +1,2 @@
 # RocketseatStarter
-Atividades do curso Starter da Rocketseat
+Activities from Rocketseat’s Starter course
